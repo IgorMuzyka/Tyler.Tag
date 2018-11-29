@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
 
-	s.name = "Tyler.Tag"
+	s.name = "Tag"
 	s.version = "0.0.1"
 	s.swift_version = "4.2"
 	s.summary = "Tyler Tag"
