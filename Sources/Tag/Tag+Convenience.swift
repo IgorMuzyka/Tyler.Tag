@@ -16,7 +16,7 @@ extension Taggable {
     }
 }
 
-extension Array where Element == Tag {
+extension Sequence where Element == Tag {
 
     public func match<Value: Tagged>(_ tagged: [Value]) -> [Value] {
         return reduce([]) { result, tag in
@@ -26,5 +26,16 @@ extension Array where Element == Tag {
 
     public var names: [String] {
         return compactMap { $0.name }
+    }
+}
+
+extension Sequence where Element: Taggable {
+
+    func tag(_ tags: Tag...) -> [Element] {
+        return map {
+            tags.reduce($0, { (element, tag) in
+                element.tag(tag)
+            })
+        }
     }
 }
