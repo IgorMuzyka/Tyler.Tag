@@ -31,7 +31,7 @@ extension Sequence where Element == Tag {
 
 extension Sequence where Element: Taggable {
 
-    func tag(_ tags: Tag...) -> [Element] {
+    public func tag(_ tags: Tag...) -> [Element] {
         return map {
             tags.reduce($0, { (element, tag) in
                 element.tag(tag)
